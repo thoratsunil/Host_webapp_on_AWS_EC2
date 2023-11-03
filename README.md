@@ -49,7 +49,7 @@ The project is built using,
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/listentolearn/aws-ec2-dynamic-website
+   git clone https://github.com/thoratsunil/Host_webapp_on_AWS_EC2.git
    ```
 2. [Install Terraform](https://www.terraform.io/downloads.html)
 3. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html)
@@ -63,7 +63,7 @@ Hosting this application involves three parts.
 
 ### Part 1: Standing up the Infrastructure
 
-The infrastructure is setup in AWS using Terraform.
+The infrastructure is set up in AWS using Terraform.
 
 1. cd into the infrastructure folder in the cloned repository.
 2. Run the following commands in order
@@ -71,14 +71,14 @@ The infrastructure is setup in AWS using Terraform.
     - terraform plan
     - terraform apply
 
-This will provision the required infrastructure and provides the EC2 instance public IP as the output.
+This will provision the required infrastructure and provide the EC2 instance public IP as the output.
 
 ### Part 2: Installing the application
 
-The next step is to install the required softwares in the EC2 instance and deploy the php application along with the MySQL database. This is done using ansible.
+The next step is to install the required software in the EC2 instance and deploy the PHP application along with the MySQL database. This is done using Ansible.
 
-1. Open the inventory.yml file under ansible directory and replace 0.0.0.0 with the public IP copied at the end of part 1.
-2. Replace the contents of the ./ansible/secrets/ssh.private with your private key. This is the private key corresponding to the public key used in Part 1 while provisioning the infrastructure using terraform.
+1. Open the inventory.yml file under the ansible directory and replace 0.0.0.0 with the public IP copied at the end of part 1.
+2. Replace the contents of the ./ansible/secrets/ssh.private with your private key. This is the private key corresponding to the public key used in Part 1 while provisioning the infrastructure using Terraform.
 3. Run the ansible playbook using the below command
     - ansible-playbook -i inventory.yml application.yml
 
